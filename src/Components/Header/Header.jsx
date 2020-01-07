@@ -5,14 +5,14 @@ import './header.styles.scss'
 const Header = () => {
     return(
     <div className="header">
-        <Link className="logo-container" to="/">
+        <Link  className="logo-container" to="/"  >
                 <Logo className="logo"/>
         </Link>
         <div className="options">
-            <Link to="/shop" className="option">
+            <Link  className="option" to="/shop">
                 SHOP
             </Link>
-            <Link className="option">
+            <Link className="option" to="/">
                 CONTACT
             </Link>
 
