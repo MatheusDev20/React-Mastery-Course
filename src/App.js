@@ -6,7 +6,7 @@ import HomePage from './Pages/homepage/Homepage'
 import ShopPage from '../src/Pages/shop/ShopPage'
 import Header from '../src/Components/Header/Header'
 import SignInAndSignUp from './Pages/sign-in-and-sing-up/sign-in-and-sign-up';
-import { auth } from './firebase/firebase.util';
+import { auth, createUserProfileDocument } from './firebase/firebase.util';
 
 
  class  App extends Component {
@@ -18,9 +18,9 @@ import { auth } from './firebase/firebase.util';
    }
    unsubscribeFromAuth = null;
    componentDidMount() {
-     auth.onAuthStateChanged(user => {
-        this.setState({currentUser: user})
-        console.log(user)
+     auth.onAuthStateChanged( async user => {
+       this.setState({currentUser: user})
+        createUserProfileDocument(user)
      })
      }
      componentWillUnmount(){
@@ -30,7 +30,7 @@ import { auth } from './firebase/firebase.util';
   return (
     <div>
 
-      <Header/>
+      <Header currentUser={this.state.currentUser}/>
       <Switch>
       <Route exact path='/'component={HomePage}/>
       <Route path ="/shop" component={ShopPage}/>

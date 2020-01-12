@@ -43,15 +43,15 @@ class SignIn extends Component {
                             handleChange={this.handleChange}
                             required
                             /> 
-                          <CustomButton type="submit">
+                            <div className="buttons">
+                            <CustomButton type="submit">
                               Sign in
                           </CustomButton>
-                          <CustomButton onClick={SignWithGoogle}>
+                          <CustomButton  isGoogleSign onClick={SignWithGoogle}>
                               Sign in With Google
                           </CustomButton>
                           
-
-                        
+                            </div>    
                         </form>
             </div>
         )
